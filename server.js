@@ -7,12 +7,18 @@
 
 const express = require('express');     // Express web server framework
 let cors = require("cors");     //     Cross-Origin Resource Sharing    
+let port = process.env.PORT || 3000;
 
 // Express
 const app = express();   // Create an Express application
 app.use(cors());     // Enable CORS
 
 //ROUTES
+
+app.get('/', (req, res) => {
+    res.send('symbl.ai Assignment Example-1  /get-data');
+});
+
 // GET /get-data
 app.get('/get-data', (req, res) => {
     
@@ -36,8 +42,8 @@ app.get('/get-data', (req, res) => {
 });
 
 // Start the Express application on port 8000
-app.listen(8000, () => {
-    console.log('Server is running on port 8000');
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 }); //listen on port 3000
 
 
